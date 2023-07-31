@@ -12,7 +12,10 @@ class Cert(models.Model):
                            max_length=256, default="https://mhealy.dev")
 
     def __str__(self):
-        return self
+        return self.certifier
+
+    def get_absolute_url(self):
+        return '/certs'
 
 
 class Code(models.Model):
@@ -24,11 +27,11 @@ class Code(models.Model):
     skills_used = models.ManyToManyField(
         'Skill', verbose_name="Skills Used", blank=True, related_name="skills")
 
-    class Meta:
-        verbose_name = "Code"
-
     def __str__(self):
-        return self
+        return self.name
+
+    def get_absolute_url(self):
+        return '/code'
 
 
 class Exp(models.Model):
@@ -46,7 +49,10 @@ class Exp(models.Model):
                            max_length=256, default="https://mhealy.dev")
 
     def __str__(self):
-        return self
+        return self.company
+
+    def get_absolute_url(self):
+        return '/exp'
 
 
 class Skill(models.Model):
@@ -64,3 +70,6 @@ class Skill(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return '/skills'
