@@ -1,4 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic.edit import CreateView
+from django.shortcuts import redirect
 
 
 class AdminRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):

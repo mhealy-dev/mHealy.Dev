@@ -6,11 +6,11 @@
 :root {
   font-size: 24px;
   font-family: 'Montserrat' !important;
-  --text-primary: #b64efe;
-  --text-secondary: #feab4e;
+  --text-primary: #e6e6e6;
+  --text-secondary: #C79C6E;
   --bg-primary: #2a232e;
   --bg-secondary: #1a171b;
-  --body-primary: #cecece;
+  --body-primary: #dbdbdb;
   --transition-speed: 600ms;
   
 }
@@ -56,25 +56,110 @@ main {
 }
 
 
+/* Styling/Alignment for targeted objects */
+.centered {
+  margin:auto;
+  width:auto;
+  color:var(--bg-primary);
+  text-align: center;
+}
+
+.centered-important {
+  margin:auto !important;
+  width:auto !important;
+  text-align: center !important;
+}
+
+.centered-left {
+  text-align: left;
+}
+
+.bordered {
+  border: 2px solid black;
+  width: fit-content;
+  margin: auto;
+  padding: 5%;
+  height: auto;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for buttons */
+.button {
+  cursor: pointer;
+  font-weight: normal;
+  font-family: 'Montserrat' !important;
+  background-color: var(--bg-primary);
+  /* border: none; */
+  color: var(--text-primary);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+.button:hover {
+  color: var(--text-secondary);
+}
+
 /* Styles for the card-style list */
-.card {
-  background-color: #fff;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  width: 9.375rem; /* 150px */
-  margin-bottom: 1rem; /* 10px */
-  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s;
+
+
+/* Styles for forms/form inputs */
+.form-input {
+  width: 18rem;
+  text-align: right;
+  margin-left: 0;
 }
 
-.card:hover {
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+.form-centered {
+  width: auto;
+  color: var(--bg-primary);
+  text-align: center;
 }
 
-.card-list {
+.form-center-auto {
+  margin: auto !important;
+  width: auto !important;
+  text-align: center !important;
+}
+
+.form-centered-left {
+  text-align: left;
+}
+
+.form-row {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  width: 10rem; /* Adjust this width in rem as needed */
+  margin-right: 1rem;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  width: 18rem; /* Adjust this width in rem as needed */
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-row textarea {
+  height: 8rem; /* Adjust this height in rem as needed */
+}
+
+.login-form .form-button {
+  margin-right: 1rem;
 }
 
 

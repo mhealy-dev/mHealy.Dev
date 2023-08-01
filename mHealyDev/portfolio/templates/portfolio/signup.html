@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% load static %}
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="centered login-form">
+        <div class="bordered">
+            <h1>Create Account</h1>
+            {% if request.GET.next %}
+            <form class="login" method="post" action="{% url 'portfolio:create'%}?next={{request.GET.next}}">
+            {% else %}
+            <form class="login" method="post" action="{% url 'portfolio:create'%}">
+            {% endif %}
+                <div class="centered-left">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {{ field.errors }}
+                        <div class="form-row">
+                            <label class="form-label">{{ field.label_tag }}</label>
+                            {{ field }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <input class="button" type="submit" value="Sign Up"/>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

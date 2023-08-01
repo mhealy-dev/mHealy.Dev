@@ -1,12 +1,25 @@
 {% extends "base.html" %}
 
 {% block head %}
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-
+{% load static %}
 {% endblock %}
 
 {% block content %}
 
-<main></main>
+<main>
+    <div class="centered login-form">
+        <div class="bordered">
+            <h2>Delete Cert</h2>
+            <form class="login" method="post" action="">
+              <div class="centered-left">
+                {% csrf_token %}
+                <p>Are you sure you would like to delete {{object}}?</p>
+              </div>
+                <input class="button" type="submit" value="Delete"/>
+            </form>
+        </div>
+    </div>
+</main>
+
 
 {% endblock %}

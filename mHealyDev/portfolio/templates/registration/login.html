@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% load static %}
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="centered login-form">
+        <div class="bordered">
+            <h1>Please login</h1>
+            <form class="login" method="post">
+                <div class="form-row">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {% if field.label_tag == '<label for="id_username">Username:</label>' %}
+                            <div class="form-row">
+                                <label class="form-label">{{ field.label_tag }}</label>
+                                {{ field }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="form-row">
+                    {% for field in form %}
+                        {% if field.label_tag == '<label for="id_password">Password:</label>' %}
+                            <div class="form-row">
+                                <label class="form-label">{{ field.label_tag }}</label>
+                                {{ field }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <input class="button" type="submit" value="Login"/>
+                {% if 'next' in request.GET %}
+                <a href="{% url 'portfolio:create' %}?next={{request.GET.next}}" class="button">Create</a>
+                {% else %}
+                <a href="{% url 'portfolio:create' %}" class="button">Create</a>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

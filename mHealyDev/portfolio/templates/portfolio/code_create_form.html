@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% load static %}
+{% endblock %}
+
+{% block content %}
+
+<main>
+    <div class="centered login-form">
+        <div class="bordered">
+            <h2>Add Code</h2>
+            <form class="login" method="post" action="{% url 'portfolio:code_create' %}">
+                <div class="centered-left">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-row">
+                        {{ field.errors }}
+                        <label class="form-label">{{ field.label_tag }}</label>
+                        {{ field }}
+                    </div>
+                    {% endfor %}
+                </div>
+                <input class="button" type="submit" value="Create"/>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

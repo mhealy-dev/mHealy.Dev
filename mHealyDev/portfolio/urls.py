@@ -38,4 +38,9 @@ urlpatterns = [
          views.SkillDelete.as_view(), name="skills_delete"),
     path("skills/<pk>/update",
          views.SkillUpdate.as_view(), name="skills_update"),
+
+    # Users
+    path("accounts/", include("django.contrib.auth.urls"), name="login"),
+    path("accounts/logout", views.auth_logout, name="logout"),
+    path("accounts/signup", views.UserCreate.as_view(), name="create"),
 ]

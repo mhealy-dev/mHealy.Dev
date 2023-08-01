@@ -40,6 +40,21 @@
           <span class="nav-link-text">Skills</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a 
+          {% if user.is_authenticated %}
+            href="{% url 'portfolio:logout' %}"
+          {% else %}
+            href="{% url 'portfolio:login' %}" 
+          {% endif %}
+          class="nav-link">
+          {% if user.is_authenticated %}
+            <span class="nav-link-text centered-center">{{ user.username|title }}</span>
+          {% else %}
+            <span class="nav-link-text centered-center">Login <i class="fas fa-times-circle"></i></span>
+          {% endif %}
+        </a>
+      </li>
     </ul>
   </nav>
   {% block content %}
