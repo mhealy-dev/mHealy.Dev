@@ -1,0 +1,163 @@
+/* Reset some default styling */
+* {
+  font-family: 'Montserrat' !important;
+}
+
+:root {
+  font-size: 24px;
+  font-family: 'Montserrat' !important;
+  --text-primary: #b64efe;
+  --text-secondary: #feab4e;
+  --bg-primary: #2a232e;
+  --bg-secondary: #1a171b;
+  --body-primary: #cecece;
+  --transition-speed: 600ms;
+  
+}
+
+
+/* Index to align items */
+.back-z {
+  z-index: 1 !important;
+}
+
+.mid-z {
+  z-index: 10 !important;
+}
+
+.front-z {
+  z-index: 99999 !important;
+}
+
+
+/* Styles for html adjustments */
+body{
+  color: #17171a;
+  background-color: var(--body-primary) !important;
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1d1d22;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #C79C6E;
+}
+
+main {
+  margin-left: 5rem;
+  padding: 1rem;
+}
+
+
+/* Styles for the card-style list */
+.card {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 9.375rem; /* 150px */
+  margin-bottom: 1rem; /* 10px */
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Styles for the logo */
+.logo {
+  font-weight: bold;
+  margin-bottom: .5rem;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  width: 100%;
+  height: 5rem;
+}
+
+.logo-text {
+  display: inline;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: var(--transition-speed);
+  font-size: 1.5rem;
+  line-height: 5rem;
+}
+
+
+/* Styles for the collapsible navbar */
+.nav-bar {
+  z-index: 99 !important;
+  position: fixed;
+  background-color: #272626;
+  color: #fff;
+  width: 4.2rem; 
+  height: 100vh;
+  transition: width 600ms ease;
+}
+
+.nav-bar:hover {
+  width: 13.5rem; /* 256px */
+}
+
+.nav-bar:hover .nav-link-text {
+  display: inline;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-list {
+  color: #fff;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  line-height: 5rem;
+  font-size: 1.3rem;
+  color: #fff;
+  text-decoration: none;
+  filter: grayscale(100%) opacity(0.7);
+  transition: 600ms;
+}
+
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  background: #111114;
+  color: #C79C6E;
+}
+
+.nav-link-text {
+  display: none;
+}
+
+
+

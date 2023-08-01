@@ -2,46 +2,47 @@
 
 <html>
 
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  {% block head %}
+  {% endblock %}
+  <title>mHealy.dev</title>
+</head>
 
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
-
-    {% block head %}
-    {% endblock %}
-    <title>mHealy.dev</title>
-    
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li>
-          <a href="{% url 'portfolio:home' %}">
-            <span>mHealy.dev</span>
-          </a>
-        </li>
-        <li>
-          <a href="{% url 'portfolio:certs' %}">
-            <span>Certs</span>
-        </li>
-        <li>
-          <a href="{% url 'portfolio:code' %}">
-            <span>Code</span>
-        </li>
-        <li>
-          <a href="{% url 'portfolio:exp' %}">
-            <span>Exp</span>
-        </li>
-        <li>
-          <a href="{% url 'portfolio:skills' %}">
-            <span>Skills</span>
-        </li>
-      </ul>
-    </nav>
-    {% block content %}
-    {% endblock %}
-  </body>
-
+<body>
+  <nav class="nav-bar">
+    <ul class="nav-list">
+      <li class="logo">
+        <a href="{% url 'portfolio:home' %}" class="nav-link">
+          <span class="nav-link-text logo-text">mHealy.dev</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'portfolio:certs' %}" class="nav-link">
+          <span class="nav-link-text">Certs</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'portfolio:code' %}" class="nav-link">
+          <span class="nav-link-text">Code</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'portfolio:exp' %}" class="nav-link">
+          <span class="nav-link-text">Exp</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'portfolio:skills' %}" class="nav-link">
+          <span class="nav-link-text">Skills</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  {% block content %}
+  {% endblock %}
+</body>
 </html>

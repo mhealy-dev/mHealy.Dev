@@ -4,15 +4,8 @@ from . import views
 app_name = "portfolio"
 
 urlpatterns = [
+    # Home
     path("", views.Home.as_view(), name="home"),
-
-    # Code
-    path("code/", views.Code.as_view(), name="code"),
-    path("code/create", views.CodeCreate.as_view(), name="code_create"),
-    path("code/<pk>/delete",
-         views.CodeDelete.as_view(), name="code_delete"),
-    path("code/<pk>/update",
-         views.CodeUpdate.as_view(), name="code_update"),
 
     # Certs
     path("certs/", views.Certs.as_view(), name="certs"),
@@ -21,6 +14,14 @@ urlpatterns = [
          views.CertDelete.as_view(), name="certs_delete"),
     path("certs/<pk>/update",
          views.CertUpdate.as_view(), name="certs_update"),
+
+    # Code
+    path("code/", views.Code.as_view(), name="code"),
+    path("code/create", views.CodeCreate.as_view(), name="code_create"),
+    path("code/<pk>/delete",
+         views.CodeDelete.as_view(), name="code_delete"),
+    path("code/<pk>/update",
+         views.CodeUpdate.as_view(), name="code_update"),
 
     # Exp
     path("exp/", views.Exp.as_view(), name="exp"),
