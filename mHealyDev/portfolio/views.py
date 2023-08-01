@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.base import RedirectView
+from django.urls import reverse_lazy
 
 
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User as UserModel
+from django.contrib.auth.decorators import login_required
 
 from . import forms
 from . import models
@@ -93,7 +95,7 @@ class ExpUpdate(mixins.AdminRequiredMixin, UpdateView):
 # Skills
 class Skills(ListView):
     model = models.Skill
-    template_name = "portfolio/skills"
+    template_name = "portfolio/skills.html"
 
 
 class SkillCreate(mixins.AdminRequiredMixin, CreateView):
@@ -115,3 +117,30 @@ class SkillUpdate(mixins.AdminRequiredMixin, UpdateView):
     form_class = forms.SkillForm
     template_name = "portfolio/skill_update_form.html"
     success_url = "/skills"
+
+
+# Home
+class Home(TemplateView):
+    template_name = "portfolio/index.html"
+
+
+# User/Login
+class UserCreate(CreateView):
+    model = UserModel
+    form_class = forms.UserCreateForm
+    template_name = 'portfolio/signup.html'
+
+    def get_success_url(self):
+        next = self.request.GET.get('next')
+        if next:
+            return reverse_lazy('portfolio:login')+f"?next={next}"
+        return reverse_lazy('portfolio:login')
+
+
+@login_required
+def auth_logout(request):
+    logout(request)
+    next = request.GET.get('next')
+    if next:
+        return redirect(next)
+    return redirect(reverse_lazy("portfolio:home"))

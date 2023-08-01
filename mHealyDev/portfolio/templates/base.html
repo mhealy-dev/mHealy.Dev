@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+
+    {% block head %}
+    {% endblock %}
+    <title>mHealy.dev</title>
+    
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="{% url 'portfolio:home' %}">
+            <span>mHealy.dev</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'portfolio:certs' %}">
+            <span>Certs</span>
+        </li>
+        <li>
+          <a href="{% url 'portfolio:code' %}">
+            <span>Code</span>
+        </li>
+        <li>
+          <a href="{% url 'portfolio:exp' %}">
+            <span>Exp</span>
+        </li>
+        <li>
+          <a href="{% url 'portfolio:skills' %}">
+            <span>Skills</span>
+        </li>
+      </ul>
+    </nav>
+    {% block content %}
+    {% endblock %}
+  </body>
+
+</html>
