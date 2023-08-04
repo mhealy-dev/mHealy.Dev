@@ -7,21 +7,21 @@
 {% block content %}
 
 <main>
-    <div class="centered login-form">
-        <div class="bordered">
+    <div class="align--center login-form">
+        <div class="bd">
             <h2>Add Cert</h2>
             <form class="login" method="post" action="{% url 'portfolio:certs_create' %}">
-                <div class="centered-left">
+                <div class="align--center-left">
                     {% csrf_token %}
                     {% for field in form %}
-                    <div class="form-row">
+                    <div class="frm__row">
                         {{ field.errors }}
-                        <label class="form-label">{{ field.label_tag }}</label>
+                        <label class="frm__lbl">{{ field.label_tag }}</label>
                         {{ field }}
                     </div>
                     {% endfor %}
                 </div>
-                <input class="button" type="submit" value="Create"/>
+                <input class="btn" type="submit" value="Create"/>
             </form>
         </div>
     </div>

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import now
 
 
 class Cert(models.Model):
@@ -10,6 +11,11 @@ class Cert(models.Model):
         verbose_name="Date Achieved", default=None)
     link = models.URLField(verbose_name="Link",
                            max_length=256, default="https://mhealy.dev")
+
+    class Meta:
+        ordering = ["-pk"]
+        verbose_name = "Cert"
+        verbose_name_plural = "Certs"
 
     def __str__(self):
         return self.certifier
@@ -26,6 +32,12 @@ class Code(models.Model):
         verbose_name="Repository", max_length=256, default=None, blank=True)
     skills_used = models.ManyToManyField(
         'Skill', verbose_name="Skills Used", blank=True, related_name="skills")
+    year_created = models.DateField(
+        verbose_name="Year Created", name="year_created", default=now)
+
+    class Meta:
+        ordering = ["year_created"]
+        verbose_name = "Code"
 
     def __str__(self):
         return self.name
@@ -47,6 +59,10 @@ class Exp(models.Model):
         verbose_name="End Year", max_length=4, default="now")
     link = models.URLField(verbose_name="Link",
                            max_length=256, default="https://mhealy.dev")
+
+    class Meta:
+        ordering = ["-pk"]
+        verbose_name = "Exp"
 
     def __str__(self):
         return self.company

@@ -14,44 +14,44 @@
 
 <body>
   <nav class="nav-bar">
-    <ul class="nav-list">
+    <ul class="nav-bar__list">
       <li class="logo">
-        <a href="{% url 'portfolio:home' %}" class="nav-link">
-          <span class="nav-link-text logo-text">mHealy.dev</span>
+        <a href="{% url 'portfolio:home' %}" class="nav-bar__link">
+          <span class="nav-bar__link--txt logo-txt">mHealy.dev</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="{% url 'portfolio:certs' %}" class="nav-link">
-          <span class="nav-link-text">Certs</span>
+      <li class="nav-bar__item">
+        <a href="{% url 'portfolio:certs' %}" class="nav-bar__link">
+          <span class="nav-bar__link--txt">Certs</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="{% url 'portfolio:code' %}" class="nav-link">
-          <span class="nav-link-text">Code</span>
+      <li class="nav-bar__item">
+        <a href="{% url 'portfolio:code' %}" class="nav-bar__link">
+          <span class="nav-bar__link--txt">Code</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="{% url 'portfolio:exp' %}" class="nav-link">
-          <span class="nav-link-text">Exp</span>
+      <li class="nav-bar__item">
+        <a href="{% url 'portfolio:exp' %}" class="nav-bar__link">
+          <span class="nav-bar__link--txt">Exp</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="{% url 'portfolio:skills' %}" class="nav-link">
-          <span class="nav-link-text">Skills</span>
+      <li class="nav-bar__item">
+        <a href="{% url 'portfolio:skills' %}" class="nav-bar__link">
+          <span class="nav-bar__link--txt">Skills</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-bar__item">
         <a 
           {% if user.is_authenticated %}
             href="{% url 'portfolio:logout' %}"
           {% else %}
             href="{% url 'portfolio:login' %}" 
           {% endif %}
-          class="nav-link">
+          class="nav-bar__link">
           {% if user.is_authenticated %}
-            <span class="nav-link-text centered-center">{{ user.username|title }}</span>
+            <span class="nav-bar__link--txt center">{{ user.username|title }}</span>
           {% else %}
-            <span class="nav-link-text centered-center">Login <i class="fas fa-times-circle"></i></span>
+            <span class="nav-bar__link--txt center">Login <i class="fas fa-times-circle"></i></span>
           {% endif %}
         </a>
       </li>

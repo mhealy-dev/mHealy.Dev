@@ -7,19 +7,18 @@
 {% block content %}
 
 <main>
-    <div class="centered login-form">
-        <div class="bordered">
+    <div class="align--center login-form">
+        <div class="bd">
             <h2>Delete Cert</h2>
             <form class="login" method="post" action="">
-              <div class="centered-left">
+              <div class="align--center-left">
                 {% csrf_token %}
                 <p>Are you sure you would like to delete {{object}}?</p>
               </div>
-                <input class="button" type="submit" value="Delete"/>
+                <input class="btn" type="submit" value="Delete"/>
             </form>
         </div>
     </div>
 </main>
-
 
 {% endblock %}
