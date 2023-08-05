@@ -2,7 +2,7 @@
 
 {% block head %}
 {% load static %}
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> -->
 
 {% endblock %}
 
@@ -10,27 +10,30 @@
 
 <main>
   <h1>Code {% if user.is_superuser %}
-    <a href="{% url 'portfolio:code_create' %}" class="button__add-item">Add a repo</a>
+    <a href="{% url 'portfolio:code_create' %}" class="btn__add-item">Add a repo</a>
     {% endif %}</h1>
   <div class="div__pt"> 
     <div class="div__ctr">
       {% for item in object_list reversed %}
-      <div class="biz-card bd-shadow card text-center">
-        <div class="biz-card__hf card-header">
-          {% for skill in item.skill_used.all %}<a href="{{skill.link}}" style="text-decoration:none">{{skill.name}}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
+      <div class="card bd--shadow align--center">
+        <div class="card__hd">
+          {% for skill in item.skills_used.all %}<a class="card__hd--link" href="{{skill.link}}">{{skill.name}}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
         </div>
-        <div class="biz-card__bd card-body">
-          <h5 class="card-title">{{item.name}}</h5>
-          <p class="card-text">{{item.description}}</p>
+        <div class="card__bd align--center">
+          <h5 class="card__ttl">{{item.name}}</h5>
+          <p class="card__txt">{{item.description}}</p>
           {% if item.repository %}
-          <a href="{{item.repository}}" class="button">Repository</a>
+          <a href="{{item.repository}}" class="btn">Repository</a>
           {% endif %}
+
+        </div>
+        <div class="card__bd align--center">
           {% if user.is_superuser %}
-          <a href="{% url 'portfolio:code_update' item.id %}" class="button">Update</a>
-          <a href="{% url 'portfolio:code_delete' item.id %}" class="button">Delete</a>
+          <a href="{% url 'portfolio:code_update' item.id %}" class="btn">Update</a>
+          <a href="{% url 'portfolio:code_delete' item.id %}" class="btn">Delete</a>
           {% endif %}
         </div>
-        <div class="biz-card__hf card-footer text-muted">
+        <div class="card__ft">
           {{item.year_created}}
         </div>
       </div>

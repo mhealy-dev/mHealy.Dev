@@ -6,7 +6,6 @@
 {% endblock %}
 
 {% block content %}
-
 <main>
   <h1>Experience {% if user.is_superuser %}
     <a class="button__add-item" href="{% url 'portfolio:exp_create' %}" >Add exp</a>
@@ -36,5 +35,4 @@
     </div>
   </div>
 </main>
-
 {% endblock %}

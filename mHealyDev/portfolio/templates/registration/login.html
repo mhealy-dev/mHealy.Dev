@@ -6,26 +6,26 @@
 
 {% block content %}
 <main>
-    <div class="centered login-form">
-        <div class="bordered">
+    <div class="align--center login-form">
+        <div class="bd">
             <h1>Please login</h1>
             <form class="login" method="post">
-                <div class="form-row">
+                <div class="frm__row">
                     {% csrf_token %}
                     {% for field in form %}
                         {% if field.label_tag == '<label for="id_username">Username:</label>' %}
-                            <div class="form-row">
-                                <label class="form-label">{{ field.label_tag }}</label>
+                            <div class="frm__row">
+                                <label class="frm__lbl">{{ field.label_tag }}</label>
                                 {{ field }}
                             </div>
                         {% endif %}
                     {% endfor %}
                 </div>
-                <div class="form-row">
+                <div class="frm__row">
                     {% for field in form %}
                         {% if field.label_tag == '<label for="id_password">Password:</label>' %}
-                            <div class="form-row">
-                                <label class="form-label">{{ field.label_tag }}</label>
+                            <div class="frm__row">
+                                <label class="frm__lbl">{{ field.label_tag }}</label>
                                 {{ field }}
                             </div>
                         {% endif %}

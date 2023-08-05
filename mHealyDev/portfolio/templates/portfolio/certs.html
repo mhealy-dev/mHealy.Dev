@@ -1,15 +1,12 @@
 {% extends "base.html" %}
 
 {% block head %}
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> -->
 {% load static %}
-
-
 {% endblock %}
 
 
 {% block content %}
-
 <main>
   <h1>Certifications {% if user.is_superuser %}
     <a class="button__add-item" href="{% url 'portfolio:certs_create' %}" target="_blank">Add a certificate</a>
@@ -18,19 +15,19 @@
   <div class="div__pt"> 
     <div class="div__ctr">
       {% for item in object_list reversed %}
-      <div class="biz-card bd-shadow card text-center">
-        <div class="biz-card__hf card-header">
-          {{item.certifier}}
+      <div class="card bd--shadow align--center">
+        <div class="card__hd">
+          <div class="card__hd--txt">{{item.certifier}}</div>
         </div>
-        <div class="biz-card__bd card-body">
-          <h5 class="card-title">{{item.cert_name}}</h5>
-            <a href="{{item.link}}" class="button">Verify</a>
+        <div class="card__bd">
+          <h5 class="card__ttl">{{item.cert_name}}</h5>
+            <a href="{{item.link}}" class="btn">Verify</a>
             {% if user.is_superuser %}
-            <a href="{% url 'portfolio:certs_update' item.id %}" class="button">Update</a>
-            <a href="{% url 'portfolio:certs_delete' item.id %}" class="button">Delete</a>
+            <a href="{% url 'portfolio:certs_update' item.id %}" class="btn">Update</a>
+            <a href="{% url 'portfolio:certs_delete' item.id %}" class="btn">Delete</a>
             {% endif %}
         </div>
-        <div class="biz-card__hf card-footer text-muted">
+        <div class="card__ft ">
           {{item.date_achieved}}
         </div>
       </div>
@@ -38,5 +35,4 @@
     </div>
   </div>   
 </main>
-
 {% endblock %}
