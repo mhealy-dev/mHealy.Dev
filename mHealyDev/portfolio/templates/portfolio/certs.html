@@ -9,7 +9,7 @@
 {% block content %}
 <main>
   <h1>Certifications {% if user.is_superuser %}
-    <a class="button__add-item" href="{% url 'portfolio:certs_create' %}" target="_blank">Add a certificate</a>
+    <a href="{% url 'portfolio:certs_create' %}" class="btn__add-item">Add a certificate</a>
     {% endif %}
   </h1>
   <div class="div__pt"> 
@@ -19,15 +19,17 @@
         <div class="card__hd">
           <div class="card__hd--txt">{{item.certifier}}</div>
         </div>
-        <div class="card__bd">
+        <div class="card__bd align--center">
           <h5 class="card__ttl">{{item.cert_name}}</h5>
-            <a href="{{item.link}}" class="btn">Verify</a>
+        </div>
+        <div class="card__bd align--center">
+          <a href="{{item.link}}" class="btn">Verify</a>
             {% if user.is_superuser %}
             <a href="{% url 'portfolio:certs_update' item.id %}" class="btn">Update</a>
             <a href="{% url 'portfolio:certs_delete' item.id %}" class="btn">Delete</a>
             {% endif %}
         </div>
-        <div class="card__ft ">
+        <div class="card__ft">
           {{item.date_achieved}}
         </div>
       </div>

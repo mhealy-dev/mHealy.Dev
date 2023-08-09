@@ -17,17 +17,16 @@
       {% for item in object_list reversed %}
       <div class="card bd--shadow align--center">
         <div class="card__hd">
-          {% for skill in item.skills_used.all %}<a class="card__hd--link" href="{{skill.link}}">{{skill.name}}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
+          <div class="card__hd--txt">{% for skill in item.skills_used.all %}<a class="card__hd--link" href="{{skill.link}}">{{skill.name}}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</div>
         </div>
         <div class="card__bd align--center">
           <h5 class="card__ttl">{{item.name}}</h5>
           <p class="card__txt">{{item.description}}</p>
+        </div>
+        <div class="card__bd align--center">
           {% if item.repository %}
           <a href="{{item.repository}}" class="btn">Repository</a>
           {% endif %}
-
-        </div>
-        <div class="card__bd align--center">
           {% if user.is_superuser %}
           <a href="{% url 'portfolio:code_update' item.id %}" class="btn">Update</a>
           <a href="{% url 'portfolio:code_delete' item.id %}" class="btn">Delete</a>
