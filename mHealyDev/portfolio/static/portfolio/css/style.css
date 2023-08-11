@@ -276,7 +276,7 @@ main {
   grid-template-rows: repeat(auto-fit, auto);
   justify-content: center;
   margin:auto;
-  max-width: fit-content ;
+  max-width: fit-content;
   width:auto;
 }
 
@@ -415,3 +415,87 @@ main {
 
 
 
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+  :root {
+    font-size: 16px;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 0.5rem;
+  }
+
+  /* Adjust form styles for smaller screens */
+  .frm__inp,
+  .frm__lbl,
+  .frm__row input,
+  .frm__row select,
+  .frm__row textarea {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .nav-bar {
+    width: 4.5rem;
+  }
+
+  .nav-bar:hover {
+    height: 3rem;
+    width: 4.5rem; 
+  }
+
+  .nav-bar:hover .logo__txt {
+    display: none;
+  }
+
+  .nav-bar__link--txt {
+    display: none;
+  }
+}
+
+/* Media query for screens smaller than 576px */
+@media (max-width: 576px) {
+  :root {
+    font-size: 14px;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 0.5rem;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  /* Adjust form styles for smaller screens */
+  .frm__inp,
+  .frm__lbl,
+  .frm__row input,
+  .frm__row select,
+  .frm__row textarea {
+    width: 100%; /* Make form elements span the entire width */
+    max-width: 100%; /* Ensure elements don't exceed screen width */
+  }
+  
+  .nav-bar {
+    height: 3rem;
+    width: 4.5rem;
+  }
+
+  .nav-bar:hover {
+    height: 50%;
+    width: 4.5rem;
+  }
+
+  .nav-bar:hover .logo__txt {
+    display: none;
+  }
+
+  .nav-bar__link--txt {
+    display: none;
+  }
+}
