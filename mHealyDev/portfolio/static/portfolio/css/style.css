@@ -1,6 +1,6 @@
 /* Reset some default styling */
 * {
-  font-family: 'Montserrat' !important;
+  font-family: 'Montserrat';
 }
 
 :root {
@@ -17,22 +17,7 @@
   
 }
 
-
-/* Index to align items */
-.back-z {
-  z-index: 1;
-}
-
-.mid-z {
-  z-index: 10;
-}
-
-.front-z {
-  z-index: 99999;
-}
-
-
-/* Styles for main html adjustments */
+/* styles for main html adjustments */
 body{
   background-color: var(--bd-primary);
   color: #17171a;
@@ -58,7 +43,7 @@ main {
 }
 
 
-/* Styling/Alignment for targeted objects */
+/* styling/alignment for targeted objects */
 .align--center {
   color:var(--bg-primary);
   margin:auto;
@@ -96,13 +81,14 @@ main {
   border: 2px solid black;
 }
 
-.pd-basic {
+.pd--basic {
   padding: 0.75rem;
 }
 
 
 
-/* Styles for buttons */
+/* styles for buttons */
+/* basic button */
 .btn {
   appearance: none;
   background-color: var(--bg-primary);
@@ -115,6 +101,7 @@ main {
   font-weight: normal;
   /* margin-top: 1rem; */
   padding: 15px 32px;
+  margin-bottom: .1rem;
   text-align: center;
   text-decoration: none;
   transition-duration: 0.4s;
@@ -123,10 +110,12 @@ main {
   -moz-appearance: none;
 }
 
+/* button:hover */
 .btn:hover {
   color: var(--txt-secondary);
 }
 
+/* button add-item */
 .btn__add-item {
   appearance: none;
   background-color: var(--bg-primary);
@@ -147,14 +136,15 @@ main {
   -moz-appearance: none;
 }
 
+/* button add-item:hover */
 .btn__add-item:hover {
   color: var(--txt-secondary);
 }
 
 
 
-/* Styles for the card-style list */
-/* Basic Card Styles */
+/* styles for cards */
+/* basic card */
 .card {
   background-color: var(--card-bd-primary);
   border: 1px solid #ccc;
@@ -167,7 +157,7 @@ main {
   width: 18.75rem;
 }
 
-/* Basic Card Hover */
+/* card:hover */
 .card:hover {
   box-shadow: 0 .2rem .2rem rgba(0.4, 0.4, 0.4, 0.4);
   position: relative;
@@ -177,7 +167,7 @@ main {
   z-index: 999999;
 }
 
-/* Card Body Styles */
+/* card body */
 .card__bd {
   align-items: center;
   background-color: var(--card-bd-primary);
@@ -186,7 +176,7 @@ main {
   margin-bottom: .3rem;
 }
 
-/* Card Footer Styles */
+/* card footer */
 .card__ft {
   background-color: var(--txt-primary);
   border-bottom-left-radius: 0.3125rem;
@@ -199,7 +189,7 @@ main {
   width: 100%;
 }
 
-/* Card Header Styles */
+/* card header */
 .card__hd {
   background-color: var(--txt-primary);
   border-top-left-radius: 0.3125rem;
@@ -212,6 +202,7 @@ main {
   width: 100%;
 }
 
+/* card header--link */
 .card__hd--link {
   background-color: var(--txt-primary);
   color: var(--card-txt-primary);
@@ -220,6 +211,7 @@ main {
   text-decoration: none;
 }
 
+/* card header--link:hover */
 .card__hd--link:hover {
   background-color: var(--txt-primary);
   border-top-left-radius: 0.3125rem;
@@ -228,13 +220,23 @@ main {
   color: var(--txt-secondary);
 }
 
+/* card header--text */
 .card__hd--txt {
   font-size: 1rem;
   padding: 0.125rem;
   padding-top: 1.5%;
 }
 
-/* Card Text Styles */
+/* card image */
+.card__img {
+  display:flex;
+  height: 5rem;
+  margin-bottom: 2rem;
+  max-width: 5rem;
+  width:fit-content;
+}
+
+/* card text */
 .card__txt {
   font-size: 0.875rem;
   font-style: italic;
@@ -242,7 +244,7 @@ main {
   /* margin-bottom: 1.2rem; */
 }
 
-/* Card Title Styles */
+/* card title */
 .card__ttl {
   font-size: 1.5rem;
   font-weight: bold;
@@ -251,7 +253,8 @@ main {
 }
 
 
-/* Styles for div parent/child */
+/* styles for div parent/child */
+/* div container */
 .div__ctr {
   display: flex;
   flex-direction: row;
@@ -261,6 +264,7 @@ main {
   width:auto;
 }
 
+/* div container grid */
 .div__ctr--grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -270,6 +274,7 @@ main {
   width:auto;
 }
 
+/* div parent */
 .div__pt {
   display: grid;
   grid-template-columns: auto repeat(2, auto);
@@ -280,34 +285,77 @@ main {
   width:auto;
 }
 
+/* div title*/
 .div__ttl {
   display: flex;
   
 }
 
+/* styles for the dropdown container */
+/* dropdown container */
+.dd {
+  position: relative;
+  display: inline-block;
+}
+
+/* dropdown hover display */
+.dd:hover .dd__list {
+  display: block;
+}
+
+
+/* dropdown button */
+.dd__label {
+  cursor: pointer;
+}
+
+/* dropdown menu */
+.dd__list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* dropdown item */
+.dd__list__item {
+  padding: 10px 20px;
+  width: 100%
+}
+
 
 /* Styles for forms/form inputs */
+/* form align center */
 .frm--center {
   color: var(--bg-primary);
   text-align: center;
   width: auto;
 }
 
+/* form center-left */
 .frm--center-left {
   text-align: left;
 }
 
+/* form input */
 .frm__inp {
   margin-left: 0;
   text-align: right;
   width: 18rem;
 }
 
+/* form label */
 .frm__lbl {
   margin-right: 1rem;
   width: 10rem;
 }
 
+/* form row */
 .frm__row {
   align-items: center;
   display: flex;
@@ -315,6 +363,7 @@ main {
   margin-bottom: 1rem;
 }
 
+/* form input, select, textarea elements */
 .frm__row input,
 .frm__row select,
 .frm__row textarea {
@@ -324,16 +373,20 @@ main {
   width: 18rem;
 }
 
+/* form row textarea */
 .frm__row textarea {
   height: 8rem;
 }
 
+/* form buttons */
 .login-frm .frm__btn {
   margin-right: 1rem;
 }
 
 
+
 /* Styles for the logo */
+/* basic logo */
 .logo {
   background: var(--bg-secondary);
   color: var(--txt-secondary);
@@ -344,6 +397,7 @@ main {
   width: 100%;
 }
 
+/* logo text */
 .logo__txt {
   display: inline;
   font-size: 1.5rem;
@@ -357,6 +411,7 @@ main {
 
 
 /* Styles for the collapsible navbar */
+/* basic navbar */
 .nav-bar {
   background-color: #272626;
   color: #fff;
@@ -367,6 +422,7 @@ main {
   z-index: 99 ;
 }
 
+/* navbar hover */
 .nav-bar:hover {
   width: 13.5rem;
 }
