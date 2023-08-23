@@ -31,11 +31,11 @@
                         {% endif %}
                     {% endfor %}
                 </div>
-                <input class="button" type="submit" value="Login"/>
+                <input class="btn" type="submit" value="Login"/>
                 {% if 'next' in request.GET %}
-                <a href="{% url 'portfolio:create' %}?next={{request.GET.next}}" class="button">Create</a>
+                <a href="{% url 'portfolio:create' %}?next={{request.GET.next}}" class="btn">Create</a>
                 {% else %}
-                <a href="{% url 'portfolio:create' %}" class="button">Create</a>
+                <a href="{% url 'portfolio:create' %}" class="btn">Create</a>
                 {% endif %}
             </form>
         </div>
